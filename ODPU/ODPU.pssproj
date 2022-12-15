@@ -26,6 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="generator.ps1" />
     <Compile Include="updater.ps1" />
   </ItemGroup>
   <ItemGroup>
