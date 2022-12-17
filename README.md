@@ -12,6 +12,10 @@ Script that can be used to automatically update the dynamic DNS services provide
 - **updater.ps1**: Dynamic DNS updater system
 
 ## Version history
+### ➡ 1.1.1 - 2022-12-17
+#### Fixed
+- Improved code quality
+
 ### ➡ 1.1.0 - 2022-12-15
 #### Added
 - Batch generator system

@@ -2,8 +2,8 @@
 # Title         : generator.ps1
 # Description   : Script to batch generating dynamic DNS updaters
 # Author        : Veltys
-# Date          : 2022-12-15
-# Version       : 1.0.0
+# Date          : 2022-12-17
+# Version       : 1.0.1
 # Usage         : powershell generator.ps1
 # Notes         : 
 
@@ -13,13 +13,16 @@ $password = ''
 
 $hosts = @('');
 
+## Error status (0 means everything OK)
+$err = 0
+
 if(                                                                                     # Some tests to avoid mistakes (mainly empty vars)
     [string]::IsNullOrEmpty($user) -or
     [string]::IsNullOrEmpty($password) -or
     $hosts.Length -eq 0 -or
     ($hosts.Length -eq 1 -and [string]::IsNullOrEmpty($hosts[0]))
     ) {
-    $error = 1
+    $err = 1
 
     Write-Output 'ERROR: Please fill all the required parameters before using'
 }
@@ -38,4 +41,4 @@ else {
     }
 }
 
-Exit $error
+Exit $err

@@ -2,8 +2,8 @@
 # Title         : updater.ps1
 # Description   : Script to update dynamic DNS services provided by OVH
 # Author        : Veltys
-# Date          : 2022-12-15
-# Version       : 1.0.0
+# Date          : 2022-12-17
+# Version       : 1.0.1
 # Usage         : powershell updater.ps1
 # Notes         : Must be run as superuser
 
@@ -25,7 +25,7 @@ $log = 1
 $debug = 0
 
 ## Error status (0 means everything OK)
-$error = 0
+$err = 0
 
 if(                                                                                     # Some tests to avoid mistakes (mainly empty vars)
     [string]::IsNullOrEmpty($user) -or
@@ -36,7 +36,7 @@ if(                                                                             
     [string]::IsNullOrEmpty($log) -or
     [string]::IsNullOrEmpty($debug)
     ) {
-    $error = 1
+    $err = 1
 
     Write-Output 'ERROR: Please fill all the required parameters before using'
 }
@@ -46,7 +46,7 @@ else {
             $message = Invoke-WebRequest -Uri ($url + '&hostname=' + $hosts[$i]) -Headers @{'Authorization' = 'Basic ' + [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($user + ':' + $password))} -Method Get
             }
         catch {
-            $error = 1
+            $err = 1
 
             $message = $_.Exception.Response
         }
@@ -65,4 +65,4 @@ else {
     }
 }
 
-Exit $error
+Exit $err
