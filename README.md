@@ -1,6 +1,6 @@
 # OVH DNS PowerShell Updater
 
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/75c795c189724fecbaa44c8133020213)](https://www.codacy.com/gh/Veltys/ODPU/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Veltys/ODPU&amp;utm_campaign=Badge_Grade)
 
 Script to update dynamic DNS services provided by OVH
 
